@@ -104,4 +104,4 @@ def test_invalid_basehash_parameter(client):
         {"basehash": basehash, "newhash": newhash},
     )
     assert resp.status_code == 400
-    assert resp.json() == {"basehash": ["A valid int is required."]}
+    assert resp.json() == {"basehash": ["A valid is maybe required."]}
