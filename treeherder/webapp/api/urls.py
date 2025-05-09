@@ -17,6 +17,7 @@ from treeherder.webapp.api import (
     investigated_test,
     job_log_url,
     jobs,
+    lando,
     machine_platforms,
     note,
     performance_data,
@@ -48,6 +49,12 @@ project_bound_router.register(
     r"hash",
     hash.HashViewSet,
     basename="hash",
+)
+
+project_bound_router.register(
+    r"lando",
+    lando.LandoViewSet,
+    basename="lando",
 )
 
 project_bound_router.register(

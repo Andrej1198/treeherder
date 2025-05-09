@@ -419,6 +419,17 @@ class HashQuerySerializer(serializers.Serializer):
             )
 
 
+class LandoQuerySerializer(serializers.Serializer):
+    baselando = serializers.IntegerField()
+    newlando = serializers.IntegerField()
+
+    def validate_pushes(self, newpush, newlando, basepush, baselando):
+        if newpush is None:
+            raise serializers.ValidationError(f"The lando id you provided({newlando}) is invalid")
+        if basepush is None:
+            raise serializers.ValidationError(f"The lando id you provided({baselando}) is invalid")
+
+
 class MachinePlatformSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.MachinePlatform
